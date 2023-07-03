@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_29_203556) do
+ActiveRecord::Schema.define(version: 2023_07_03_212103) do
 
   create_table "garden_areas", force: :cascade do |t|
-    t.string "name"
     t.string "location"
     t.integer "length"
     t.integer "width"
@@ -24,8 +23,9 @@ ActiveRecord::Schema.define(version: 2023_06_29_203556) do
     t.string "latin_name"
     t.integer "height"
     t.integer "width"
-    t.integer "hardiness_zones"
+    t.string "hardiness_zones"
     t.string "garden_location"
+    t.string "description"
   end
 
 end

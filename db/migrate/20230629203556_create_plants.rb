@@ -5,7 +5,7 @@ class CreatePlants < ActiveRecord::Migration[6.1]
       t.string :latin_name
       t.integer :height
       t.integer :width
-      t.integer :hardiness_zones
+      t.string :hardiness_zones
       t.string :garden_location
     end
   end

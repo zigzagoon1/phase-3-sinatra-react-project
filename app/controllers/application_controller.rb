@@ -3,7 +3,15 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get "/" do
-    { message: "Good luck with your project!" }.to_json
+    
   end
 
+  get "/areas" do 
+    areas = GardenArea.all.order(location: :asc)
+    areas.to_json
+  end
+
+  get "/plants" do 
+    plants = Plant.all.order(location: :asc)
+  end
 end
