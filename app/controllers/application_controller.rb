@@ -7,11 +7,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/areas" do 
-    areas = GardenArea.all.order(location: :asc)
-    areas.to_json
+    areas = GardenArea.all.order(id: :asc)
+    areas.to_json(include: :plants)
   end
 
   get "/plants" do 
-    plants = Plant.all.order(location: :asc)
+    plants = Plant.all.order(id: :asc)
+    plants.to_json
   end
 end
