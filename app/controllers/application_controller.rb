@@ -28,6 +28,13 @@ class ApplicationController < Sinatra::Base
       location_in_area: params[:location_in_area]
     )
     new_plant.to_json
+
+    patch "/plants" do 
+      plant = Plant.find(params[:id])
+      plant.update({
+        
+      })
+    end
   end
 
 end
