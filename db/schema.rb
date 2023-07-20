@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2023_07_07_234605) do
     t.integer "width"
     t.string "hardiness_zones"
     t.string "description"
-    t.integer "area_id"
     t.integer "garden_area_id"
     t.integer "location_in_area"
   end
