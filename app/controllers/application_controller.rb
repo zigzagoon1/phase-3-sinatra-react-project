@@ -11,11 +11,6 @@ class ApplicationController < Sinatra::Base
     areas.to_json(include: :plants)
   end
 
-  get "/plants" do 
-    plants = Plant.all.order(id: :asc)
-    plants.to_json
-  end
-
   post "/plants" do
     new_plant = Plant.create(
       name: params[:name],
@@ -28,13 +23,25 @@ class ApplicationController < Sinatra::Base
       location_in_area: params[:location_in_area]
     )
     new_plant.to_json
+  end
 
-    patch "/plants" do 
-      plant = Plant.find(params[:id])
-      plant.update({
-        
-      })
-    end
+  patch "/plants/:id" do 
+    plant = Plant.find(params[:id])
+    plant.update({
+      name: params[:name],
+      garden_area_id: params[:garden_area_id],
+      location_in_area: params[:location_in_area],
+      latin_name: params[:latin_name],
+      height: params[:height],
+      width: params[:width],
+      hardiness_zones: params[:hardiness_zones],
+      description: params[:description]
+    })
+  end
+
+  delete "/plants/:id" do
+    plant = Plant.find(params[:id])
+    plant.delete
   end
 
 end
