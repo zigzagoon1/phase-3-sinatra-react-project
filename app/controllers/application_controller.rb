@@ -37,6 +37,7 @@ class ApplicationController < Sinatra::Base
       hardiness_zones: params[:hardiness_zones],
       description: params[:description]
     })
+    plant.to_json
   end
 
   delete "/plants/:id" do
