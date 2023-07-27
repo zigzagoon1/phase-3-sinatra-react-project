@@ -11,6 +11,16 @@ class ApplicationController < Sinatra::Base
     areas.to_json(include: :plants)
   end
 
+  post "/areas" do
+    new_area = GardenArea.create(
+      location: params[:location],
+      length: params[:length],
+      width: params[:width],
+      number_of_plants: params[:number_of_plants]
+    )
+    new_area.to_json
+  end
+
   post "/plants" do
     new_plant = Plant.create(
       name: params[:name],
