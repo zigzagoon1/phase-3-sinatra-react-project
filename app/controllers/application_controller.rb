@@ -16,9 +16,9 @@ class ApplicationController < Sinatra::Base
       location: params[:location],
       length: params[:length],
       width: params[:width],
-      number_of_plants: params[:number_of_plants]
+      number_of_plants: params[:number_of_plants], 
     )
-    new_area.to_json
+    new_area.to_json(include: :plants)
   end
 
   post "/plants" do
